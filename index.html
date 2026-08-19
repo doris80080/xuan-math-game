@@ -40,57 +40,26 @@
 .celebrateBtn{border:0;border-radius:18px;padding:13px 22px;background:#ff80aa;color:white;font-size:17px;font-weight:900}
 
 
-/* ===== 全站統一：宥瑄兒童 App 粉彩插畫風 ===== */
-body{background:#f9d9e5}
-.app{max-width:440px;background:#fff0f5;box-shadow:0 0 35px rgba(133,76,103,.08)}
-.moreGames{padding:20px 12px 44px;background:linear-gradient(180deg,#ffe5ee 0%,#fff6fa 55%,#fdf0ff 100%);position:relative}
-.moreGames:before{content:"";display:block;height:10px;margin:-20px -12px 16px;background:repeating-linear-gradient(135deg,#ffd56f 0 22px,#ff9fc0 22px 44px,#a7d8ff 44px 66px);opacity:.8}
-.moreTitle{display:inline-block;position:relative;left:50%;transform:translateX(-50%);white-space:nowrap;background:linear-gradient(#ff80aa,#f45f94);color:#fff;text-shadow:0 2px 0 #c63e6d;border:3px solid #fff;border-radius:18px;padding:9px 24px;box-shadow:0 5px 0 #e8a0b8,0 9px 16px rgba(180,76,117,.14);font-size:21px;margin:0 0 8px}
-.moreHint{font-size:13px;color:#9b6b82;line-height:1.55;margin:0 8px 12px}
-.dailyBtn{border:3px solid #fff;border-radius:22px;padding:14px;background:linear-gradient(135deg,#ff8fb4,#cf92ee);box-shadow:0 5px 0 #dc719c,0 9px 18px rgba(153,75,112,.14);font-size:17px}
-.moreGrid{gap:12px}
-.moreCard{position:relative;min-height:145px;padding:12px 9px 10px;border:3px solid rgba(255,255,255,.9);border-radius:25px;box-shadow:0 6px 0 rgba(166,109,139,.16),0 10px 18px rgba(123,87,118,.09);overflow:hidden;transition:transform .12s ease,box-shadow .12s ease}
-.moreCard:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 18%,rgba(255,255,255,.75) 0 7px,transparent 8px),radial-gradient(circle at 80% 28%,rgba(255,255,255,.6) 0 5px,transparent 6px),linear-gradient(135deg,rgba(255,255,255,.2),transparent 50%);pointer-events:none}
-.moreCard:after{content:"開始遊戲 ▶";position:absolute;bottom:9px;left:50%;transform:translateX(-50%);background:linear-gradient(#ffd95b,#ffb91e);color:#fff;border:2px solid #fff;border-radius:999px;padding:5px 13px;font-size:12px;font-weight:1000;white-space:nowrap;text-shadow:0 1px 1px #b97900;box-shadow:0 3px 0 rgba(201,137,19,.25)}
-.moreCard:nth-child(3n):after{background:linear-gradient(#ff83ad,#f05c8f)}
-.moreCard:nth-child(4n):after{background:linear-gradient(#a86cf2,#8243d7)}
-.moreCard:active{transform:translateY(3px);box-shadow:0 3px 0 rgba(166,109,139,.12),0 6px 12px rgba(123,87,118,.08)}
-.moreCard b,.moreCard span{position:relative;z-index:1}
-.moreCard b{font-size:17px;margin-top:2px;color:#5d4a55;text-shadow:0 1px #fff}
-.moreCard span{font-size:12px;color:#7d6874}
-.moreCard:first-letter{font-size:34px}
-.moreCard.c1{background:linear-gradient(145deg,#d9f4ff,#9fe0fa)} .moreCard.c2{background:linear-gradient(145deg,#fff6d6,#ffe6a1)} .moreCard.c3{background:linear-gradient(145deg,#e8fad9,#bceca0)} .moreCard.c4{background:linear-gradient(145deg,#f0e4ff,#d4b4fa)}
-.moreCard.c5{background:linear-gradient(145deg,#ffe8f2,#ffc3da)} .moreCard.c6{background:linear-gradient(145deg,#dff8ff,#a9e9ed)} .moreCard.c7{background:linear-gradient(145deg,#fff0d7,#ffd59d)} .moreCard.c8{background:linear-gradient(145deg,#e6f7ff,#b8e4ff)}
-.moreCard.c9{background:linear-gradient(145deg,#f1e7ff,#d8c0ff)} .moreCard.c10{background:linear-gradient(145deg,#ddfaf5,#a8ece1)} .moreCard.c11{background:linear-gradient(145deg,#fff6d2,#ffe69b)} .moreCard.c12{background:linear-gradient(145deg,#ffe9f2,#ffc4d8)}
-.moreCard.c13{background:linear-gradient(145deg,#dff7ff,#b5e5ff)} .moreCard.c14{background:linear-gradient(145deg,#eeeaff,#cfc1ff)} .moreCard.c15{background:linear-gradient(145deg,#e7f9dc,#b9e8a3)} .moreCard.c16{background:linear-gradient(145deg,#fff0dc,#ffd4a7)} .moreCard.c17{background:linear-gradient(145deg,#f7e8ff,#ddc1f8)} .moreCard.c18{background:linear-gradient(145deg,#e0faf5,#b1e8dc)}
-/* 遊戲頁 */
-.overlayScreen{background:linear-gradient(180deg,#ffdbe8 0%,#fff4f8 38%,#f5e9ff 100%);backdrop-filter:blur(3px)}
-.screen{padding:0 13px 34px;position:relative}
-.gameTopArt{margin:0 -13px 12px;padding:16px 14px 13px;background:linear-gradient(135deg,#ff9fbe,#f7b8cf 55%,#d8b4f2);border-bottom:4px solid #fff;box-shadow:0 5px 18px rgba(140,76,119,.12);position:relative;overflow:hidden}
-.gameTopArt:before{content:"✦  ✧  ⭐  ✦  🐧  ✧";position:absolute;top:5px;right:9px;color:#fff;font-size:18px;opacity:.75;letter-spacing:4px}
-.gameTopArt .top{margin:0;position:relative;z-index:1}
-.back,.mini{border:3px solid #fff;border-radius:17px;background:rgba(255,255,255,.88);padding:8px 11px;box-shadow:0 4px 0 rgba(170,105,139,.13),0 7px 15px rgba(123,74,111,.1);color:#765066}
-.title{font-size:19px;color:#fff;text-shadow:0 2px 0 rgba(164,68,108,.35);max-width:190px;text-align:center}
-.gameWelcome{display:flex;align-items:center;justify-content:center;gap:8px;color:#fff;font-weight:1000;font-size:14px;text-shadow:0 2px 0 rgba(164,68,108,.25);margin-top:7px}
-.gameWelcome .penguin{font-size:33px;filter:drop-shadow(0 3px 2px rgba(100,50,80,.18));animation:miniWiggle 1.8s ease-in-out infinite}
-@keyframes miniWiggle{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg) translateY(-3px)}}
-.progress{height:16px;background:#fff;border:3px solid #fff;margin:0 4px 14px;border-radius:999px;box-shadow:inset 0 2px 5px rgba(126,91,119,.12),0 4px 10px rgba(126,91,119,.08);position:relative}
-.bar{background:linear-gradient(90deg,#ff78a7,#ffbd55,#a98df0);border-radius:999px;position:relative}
-.bar:after{content:"⭐";position:absolute;right:-7px;top:-10px;font-size:20px;filter:drop-shadow(0 2px 2px rgba(120,75,60,.2))}
-.questionCard{background:rgba(255,255,255,.94);border:4px solid #fff;border-radius:30px;padding:17px 15px 15px;box-shadow:0 8px 0 rgba(195,137,166,.13),0 14px 28px rgba(113,77,111,.11);position:relative;overflow:hidden}
-.questionCard:before{content:"";position:absolute;left:-20px;top:-20px;width:85px;height:85px;border-radius:50%;background:#ffe7ef;opacity:.7}.questionCard:after{content:"✿";position:absolute;right:15px;top:7px;color:#f4a3bf;font-size:24px;opacity:.8}
-.miniMascot{font-size:54px;line-height:1;margin:0 0 2px;position:relative;z-index:1;filter:drop-shadow(0 3px 2px rgba(100,60,80,.12))}
-.q{font-size:22px;line-height:1.55;color:#684a3f;min-height:104px;padding:8px 8px;font-weight:1000;position:relative;z-index:1}
-.answers{gap:11px;position:relative;z-index:1}.ans{border:3px solid #fff;border-radius:20px;padding:15px 8px;background:linear-gradient(#fff6fa,#ffe4ee);color:#68465f;font-size:21px;font-weight:1000;box-shadow:0 5px 0 rgba(193,110,146,.15),0 7px 12px rgba(118,81,110,.08);min-height:62px}
-.ans:nth-child(2){background:linear-gradient(#fff9e5,#ffedb0)} .ans:nth-child(3){background:linear-gradient(#e8faff,#c8effc)} .ans:nth-child(4){background:linear-gradient(#f2eaff,#dfcdfb)}
-.ans.ok{background:linear-gradient(#e9ffe9,#bdf1c9)!important;outline:3px solid #78d39a;transform:scale(1.03)}.ans.no{background:linear-gradient(#fff0f0,#ffd1d1)!important;outline:3px solid #f19a9a}
-.feedback{min-height:42px;margin:12px 4px 8px;color:#b34e79;font-size:16px;line-height:1.4;font-weight:1000}
-.actions{gap:7px;position:relative;z-index:1}.btn{border:3px solid #fff;border-radius:17px;padding:11px 7px;background:linear-gradient(#f4e8ff,#e6d2fa);box-shadow:0 4px 0 rgba(127,86,138,.13);font-weight:1000}.primary{background:linear-gradient(#ff8eb3,#f35d93);color:#fff;text-shadow:0 1px 1px #b83d69}
-/* 鼓勵訊息 */
-.encourage{text-align:center;background:#fff3f8;border:3px solid #fff;border-radius:18px;padding:8px 10px;margin:8px 0 2px;color:#b44f78;font-size:17px}.encourageSmall{text-align:center;color:#8f6478;font-size:13px;margin:2px 0 8px}
-/* 獎勵頁 */
-#reward{display:none;align-items:center;justify-content:center;min-height:68vh;background:transparent;box-shadow:none;padding:10px 0}.rewardBox{max-width:370px;width:100%;background:linear-gradient(180deg,#fffdfd,#fff1f7);border:4px solid #fff;border-radius:32px;padding:24px 17px 20px;box-shadow:0 8px 0 rgba(194,125,161,.14),0 18px 40px rgba(108,69,104,.16);position:relative;overflow:hidden}.rewardBox:before{content:"✦  ⭐  ✧  ⭐  ✦";display:block;color:#f4b44c;font-size:18px;letter-spacing:4px;margin-bottom:4px}.rewardTitle{font-size:27px;color:#d64e82;text-shadow:0 2px #fff;margin:4px 0}.rewardText{font-size:16px;color:#775a6a;line-height:1.5}.rewardChoices{gap:11px}.rewardChoice{border:3px solid #fff;border-radius:20px;min-height:105px;background:linear-gradient(#fff1f7,#ffd9e7);box-shadow:0 5px 0 rgba(194,110,145,.15);font-size:16px}.rewardChoice.alt{background:linear-gradient(#e8fbff,#cdeff8);color:#397a95}.danceStage{font-size:67px;min-height:96px}.stickerWall{font-size:58px}.celebrateBtn{border:3px solid #fff;box-shadow:0 5px 0 rgba(193,75,119,.2);background:linear-gradient(#ff86ae,#f05e93)}
-@media(max-width:380px){.moreCard{min-height:132px}.moreCard b{font-size:15px}.q{font-size:20px}.ans{font-size:19px}.title{font-size:17px}}
+/* ===== 完整兒童 App 導覽 ===== */
+.bottomNav{position:fixed;left:50%;bottom:0;transform:translateX(-50%);width:min(440px,100%);height:68px;background:#fff;border-top:3px solid #ffd3e2;display:grid;grid-template-columns:repeat(3,1fr);z-index:120;box-shadow:0 -6px 20px rgba(124,76,104,.10)}
+.navBtn{border:0;background:#fff;color:#806174;font-weight:900;font-size:13px}
+.navBtn.active{color:#e6578b;background:#fff2f7}
+.navBtn .ni{display:block;font-size:23px;line-height:1.05}
+.moreGames{padding-bottom:110px}
+.appModal{display:none;position:fixed;inset:0;background:rgba(82,52,76,.38);z-index:200;align-items:center;justify-content:center;padding:16px}
+.appModal.show{display:flex}
+.appModalBox{width:100%;max-width:390px;background:#fff8fc;border:4px solid #fff;border-radius:30px;padding:22px;box-shadow:0 18px 50px rgba(81,53,75,.25)}
+.appModalHead{display:flex;align-items:center;justify-content:space-between;color:#c74e7f;font-size:22px;font-weight:1000}
+.appClose{border:3px solid #fff;border-radius:50%;background:#f3e4ef;width:38px;height:38px;color:#76536c;font-size:22px;font-weight:900}
+.recordLine,.settingLine{display:flex;align-items:center;justify-content:space-between;padding:14px 2px;border-bottom:2px dashed #f0cddd;font-weight:900}
+.settingLine small{display:block;color:#9a788a;font-weight:700;margin-top:3px}
+.settingToggle{width:52px;height:30px;border:0;border-radius:999px;background:#ccc;padding:0}
+.settingToggle.on{background:#ff80aa}
+.settingToggle:after{content:"";display:block;width:24px;height:24px;margin:3px;border-radius:50%;background:#fff;transition:.2s}
+.settingToggle.on:after{margin-left:25px}
+.appDanger{background:#ffe2e2!important;color:#b44b4b!important}
+.navHint{margin:12px 0 0;text-align:center;font-size:12px;color:#9b7588;line-height:1.5}
+
 </style></head><body><div id="fxLayer"></div>
 <div class="app"><div class="home" id="home">
 <div class="statStars" id="homeStars">0 ⭐</div><div class="statDone" id="homeDone">0 / 5 題</div>
@@ -119,11 +88,9 @@ body{background:#f9d9e5}
     <button class="moreCard c17" data-game="match">🧩<b>找一樣的</b><span>哪兩個一樣？</span></button>
     <button class="moreCard c18" data-game="odd">👀<b>找出不一樣</b><span>哪一個偷偷變了？</span></button>
   </div>
-</div></div><div class="overlayScreen" id="gameScreen"><div class="screen">
-<div class="gameTopArt"><div class="top"><button class="back" id="back">← 回首頁</button><div class="title" id="gameTitle">數學遊戲</div><button class="mini" id="score">⭐ 0</button></div><div class="gameWelcome"><span class="penguin">🐧</span><span>瑄，我們一起想想看！</span><span>⭐</span></div></div>
-<div class="progress"><div class="bar" id="bar"></div></div>
-<div class="questionCard" id="questionCard"><div class="miniMascot">🐧💗</div><div class="q" id="question"></div><div class="answers" id="answers"></div><div class="feedback" id="feedback"></div><div id="encourage" class="encourage" style="display:none"></div><div id="encourageSmall" class="encourageSmall" style="display:none"></div><div class="actions"><button class="btn" id="hint">💡 提示</button><button class="btn" id="speak">🔊 聽題目</button><button class="btn primary" id="next">下一題</button></div></div>
-<div class="reward" id="reward"><div class="rewardBox"><div class="rewardMascot">🐧💗</div><div class="rewardTitle">🎉 瑄完成今天的 5 題啦！</div><div class="rewardStars">⭐⭐⭐⭐⭐</div><div class="rewardText">太棒了！今天的數學小任務完成！<br>現在選一個小獎勵吧～🎁</div><div id="rewardArea" style="display:none"></div><div class="rewardChoices"><button class="rewardChoice" id="danceBtn">🐧<br>看小企鵝跳舞</button><button class="rewardChoice alt" id="stickerBtn">🎁<br>獲得一張貼紙</button></div><button class="celebrateBtn" id="rewardDone" style="display:none">完成～回首頁 🏠</button></div></div>
+</div></div><div class="overlayScreen" id="gameScreen"><div class="screen"><div class="top"><button class="back" id="back">← 回首頁</button><div class="title" id="gameTitle">數學遊戲</div><button class="mini" id="score">⭐ 0</button></div><div class="progress"><div class="bar" id="bar"></div></div>
+<div class="questionCard" id="questionCard"><div class="miniMascot">🐧💗</div><div class="q" id="question"></div><div class="answers" id="answers"></div><div class="feedback" id="feedback"></div><div class="actions"><button class="btn" id="hint">💡 提示</button><button class="btn" id="speak">🔊 聽題目</button><button class="btn primary" id="next">下一題</button></div></div>
+<div class="reward" id="reward"><div style="font-size:24px;font-weight:900">🎉 今天完成 5 題啦！</div><div class="bigstars">⭐⭐⭐⭐⭐</div><p>瑄今天很棒！可以選一個小小獎勵囉 🎁</p><button class="btn primary" id="rewardBack">回首頁</button></div>
 </div></div>
 <script>
 const G={
@@ -149,7 +116,7 @@ odd:{title:"👀 找出不一樣",make(){let sets=[["🍎","🍎","🍎","🍌"]
 function save(){localStorage.setItem("xuanMathOfficial",JSON.stringify(state))}function updateHome(){$("homeStars").textContent=state.stars+" ⭐";$("homeDone").textContent=state.done+" / 5 題"}function opts(ans,custom){if(custom)return [...new Set(custom)];if(typeof ans!=="number")return[ans];let s=new Set([ans]);while(s.size<4)s.add(Math.max(0,ans+r(-2,2)));return[...s].sort((a,b)=>a-b)}
 function openGame(t){type=t;answered=false;$("home").style.display="none";$("gameScreen").style.display="block";$("reward").classList.remove("show");$("questionCard").style.display="block";newQ()}
 function newQ(){answered=false;$("feedback").textContent="";cur=G[type].make();$("gameTitle").textContent=G[type].title;$("question").textContent=cur.q;$("answers").innerHTML="";opts(cur.ans,cur.opts).forEach(v=>{let b=document.createElement("button");b.className="ans";b.textContent=v;b.onclick=()=>check(v,b);$("answers").appendChild(b)});$("score").textContent="⭐ "+state.stars;$("bar").style.width=Math.min(100,state.done/5*100)+"%"}
-function check(v,b){if(answered)return;let ok=String(v)===String(cur.ans);if(ok){answered=true;state.done++;state.stars++;b.classList.add("ok");$("feedback").textContent="答對了！⭐ 瑄好棒！";save();$("score").textContent="⭐ "+state.stars;$("bar").style.width=Math.min(100,state.done/5*100)+"%";updateHome();if(typeof showCheer==="function")showCheer(true);if(!dailyMode && state.done>=5)setTimeout(()=>{$("questionCard").style.display="none";$("reward").classList.add("show")},450)}else{$("feedback").textContent="再想一下～💗 按提示看看";b.classList.add("no");if(typeof showCheer==="function")showCheer(false)}}
+function check(v,b){if(answered)return;let ok=String(v)===String(cur.ans);if(ok){answered=true;state.done++;state.stars++;b.classList.add("ok");$("feedback").textContent="答對了！⭐ 瑄好棒！";save();$("score").textContent="⭐ "+state.stars;$("bar").style.width=Math.min(100,state.done/5*100)+"%";updateHome();if(!dailyMode && state.done>=5)setTimeout(()=>{$("questionCard").style.display="none";$("reward").classList.add("show")},450)}else{$("feedback").textContent="再想一下～💗 按提示看看";b.classList.add("no")}}
 $("hint").onclick=()=>{$("feedback").textContent="💡 "+cur.h};$("speak").onclick=()=>{if("speechSynthesis"in window){let u=new SpeechSynthesisUtterance(cur.q);u.lang="zh-TW";speechSynthesis.cancel();speechSynthesis.speak(u)}};$("back").onclick=()=>{dailyMode=false;$("gameScreen").style.display="none";$("home").style.display="block";updateHome()};$("rewardBack").onclick=()=>{dailyMode=false;$("reward").classList.remove("show");$("questionCard").style.display="block";$("gameScreen").style.display="none";$("home").style.display="block";updateHome()};let dailyQueue=[],dailyIndex=0,dailyMode=false;
 function startDaily(){dailyMode=true;dailyIndex=0;dailyQueue=[...Object.keys(G)].sort(()=>Math.random()-.5).slice(0,5);openGame(dailyQueue[0]);}
 const oldNewQ=newQ;
@@ -271,6 +238,128 @@ if(typeof oldOpenGame==="function"){
     return oldOpenGame.apply(this,args);
   };
 }
+</script>
+
+
+<nav class="bottomNav" aria-label="主要功能">
+  <button class="navBtn active" data-nav="home"><span class="ni">🏠</span>回首頁</button>
+  <button class="navBtn" data-nav="records"><span class="ni">📖</span>遊戲記錄</button>
+  <button class="navBtn" data-nav="settings"><span class="ni">⚙️</span>設定</button>
+</nav>
+
+<div class="appModal" id="recordsModal">
+  <div class="appModalBox">
+    <div class="appModalHead"><span>📖 瑄的遊戲記錄</span><button class="appClose" data-app-close="recordsModal">×</button></div>
+    <div id="recordsContent"></div>
+    <p class="navHint">每天完成的題目會保留在這裡，媽媽可以看看瑄的小進步 💗</p>
+  </div>
+</div>
+
+<div class="appModal" id="settingsModal">
+  <div class="appModalBox">
+    <div class="appModalHead"><span>⚙️ 遊戲設定</span><button class="appClose" data-app-close="settingsModal">×</button></div>
+    <div class="settingLine">
+      <div>🔊 題目語音<small>按「聽題目」時朗讀</small></div>
+      <button class="settingToggle on" id="soundToggle" aria-label="切換語音"></button>
+    </div>
+    <div class="settingLine">
+      <div>✨ 答對星星動畫<small>答對時會出現星星</small></div>
+      <button class="settingToggle on" id="fxToggle" aria-label="切換星星動畫"></button>
+    </div>
+    <button class="btn appDanger" id="resetTodayBtn" style="width:100%;margin-top:14px">↻ 重新開始今天的 5 題</button>
+    <p class="navHint">目前設計成手機 App 介面，所有按鍵都可以直接操作。</p>
+  </div>
+</div>
+
+
+<script>
+/* ===== 完整 App 導覽 ===== */
+(function(){
+  const navButtons=document.querySelectorAll(".navBtn");
+  const recordsModal=document.getElementById("recordsModal");
+  const settingsModal=document.getElementById("settingsModal");
+  const recordsContent=document.getElementById("recordsContent");
+  const soundToggle=document.getElementById("soundToggle");
+  const fxToggle=document.getElementById("fxToggle");
+  const resetTodayBtn=document.getElementById("resetTodayBtn");
+  const todayKey=new Date().toLocaleDateString("en-CA");
+
+  let appSettings=JSON.parse(localStorage.getItem("xuanAppSettings")||'{"sound":true,"fx":true}');
+
+  function setToggle(el,on){ if(el) el.classList.toggle("on",!!on); }
+  function refreshNav(which){
+    navButtons.forEach(b=>b.classList.toggle("active",b.dataset.nav===which));
+  }
+  function openRecords(){
+    refreshNav("records");
+    const s=JSON.parse(localStorage.getItem("xuanMathOfficial")||"null")||{date:todayKey,done:0,stars:0};
+    const history=JSON.parse(localStorage.getItem("xuanMathHistory")||"[]");
+    const rows=[{date:"今天",done:s.done||0,stars:s.stars||0},...history.slice(-7).reverse()];
+    recordsContent.innerHTML=rows.map(x=>
+      '<div class="recordLine"><span>📅 '+x.date+'</span><span>'+x.done+' 題　⭐ '+x.stars+'</span></div>'
+    ).join("");
+    if(!rows.length) recordsContent.innerHTML='<p style="text-align:center;color:#9b7285">完成幾天後，這裡會出現記錄喔 💗</p>';
+    recordsModal.classList.add("show");
+  }
+  function openSettings(){
+    refreshNav("settings");
+    setToggle(soundToggle,appSettings.sound);
+    setToggle(fxToggle,appSettings.fx);
+    settingsModal.classList.add("show");
+  }
+  function goHome(){
+    refreshNav("home");
+    if(typeof goHomeFromGame==="function"){goHomeFromGame();return;}
+    const gameScreen=document.getElementById("gameScreen");
+    const home=document.getElementById("home");
+    if(gameScreen) gameScreen.style.display="none";
+    if(home) home.style.display="block";
+  }
+
+  navButtons.forEach(b=>{
+    b.addEventListener("click",()=>{
+      if(b.dataset.nav==="home") goHome();
+      if(b.dataset.nav==="records") openRecords();
+      if(b.dataset.nav==="settings") openSettings();
+    });
+  });
+
+  document.querySelectorAll("[data-app-close]").forEach(b=>{
+    b.addEventListener("click",()=>{
+      const m=document.getElementById(b.dataset.appClose);
+      if(m) m.classList.remove("show");
+      refreshNav("home");
+    });
+  });
+
+  [recordsModal,settingsModal].forEach(m=>m.addEventListener("click",e=>{
+    if(e.target===m){m.classList.remove("show");refreshNav("home");}
+  }));
+
+  soundToggle.addEventListener("click",()=>{
+    appSettings.sound=!appSettings.sound;
+    localStorage.setItem("xuanAppSettings",JSON.stringify(appSettings));
+    setToggle(soundToggle,appSettings.sound);
+  });
+  fxToggle.addEventListener("click",()=>{
+    appSettings.fx=!appSettings.fx;
+    localStorage.setItem("xuanAppSettings",JSON.stringify(appSettings));
+    setToggle(fxToggle,appSettings.fx);
+  });
+
+  resetTodayBtn.addEventListener("click",()=>{
+    if(!confirm("要重新開始今天的 5 題嗎？今天的星星會歸零喔。")) return;
+    const s=JSON.parse(localStorage.getItem("xuanMathOfficial")||"null")||{};
+    s.done=0;s.stars=0;s.date=todayKey;
+    localStorage.setItem("xuanMathOfficial",JSON.stringify(s));
+    if(typeof updateHome==="function") updateHome();
+    settingsModal.classList.remove("show");
+    refreshNav("home");
+  });
+
+  setToggle(soundToggle,appSettings.sound);
+  setToggle(fxToggle,appSettings.fx);
+})();
 </script>
 
 </body></html>
