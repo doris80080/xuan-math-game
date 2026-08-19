@@ -6,24 +6,217 @@
 <style>
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html,body{margin:0;background:#f9dce7;font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","Microsoft JhengHei",sans-serif;color:#70432c}button{font:inherit}.app{width:100%;max-width:440px;margin:auto;min-height:100vh}
 .home{position:relative;width:100%;aspect-ratio:853/1704;background:url("xuan-home.webp") center -72px/100% auto no-repeat;overflow:hidden}
-.tap{position:absolute;border:0;background:transparent;cursor:pointer}.card1{left:3%;top:36.15%;width:47%;height:16.56%}.card2{left:50%;top:36.15%;width:47%;height:16.56%}.card3{left:3%;top:53.25%;width:47%;height:15.91%}.card4{left:50%;top:53.25%;width:47%;height:15.91%}.card5{left:3%;top:69.70%;width:47%;height:15.80%}.card6{left:50%;top:69.70%;width:47%;height:15.80%}
+.moreGames{padding:18px 14px 38px;background:linear-gradient(#f9dce7,#fff3f7)}.moreTitle{text-align:center;font-size:22px;font-weight:900;color:#b94d78;margin:4px 0 4px}.moreHint{text-align:center;font-size:13px;color:#9b6b82;margin:0 0 10px}.dailyBtn{display:block;width:100%;border:0;border-radius:18px;padding:13px;margin:0 0 14px;background:linear-gradient(135deg,#ff8fb4,#cda0ef);color:#fff;font-weight:900;font-size:16px;box-shadow:0 5px 14px #9b66831f}.moreGrid{display:grid;grid-template-columns:1fr 1fr;gap:11px}.moreCard{border:0;border-radius:20px;padding:14px 7px;background:#fff;box-shadow:0 5px 16px #8e628d1f;color:#68465f;display:flex;flex-direction:column;gap:4px;align-items:center;font-weight:900;min-height:92px}.moreCard span{font-size:12px;font-weight:700;opacity:.8}.moreCard b{font-size:16px}.moreCard.c1{background:#fff3d8}.moreCard.c2{background:#e7f7ff}.moreCard.c3{background:#e8faed}.moreCard.c4{background:#eee7ff}.moreCard.c5{background:#ffe8f2}.moreCard.c6{background:#fff1dc}.moreCard.c7{background:#fff0df}.moreCard.c8{background:#e8f5ff}.moreCard.c9{background:#f1e9ff}.moreCard.c10{background:#e7fbf7}.moreCard.c11{background:#fff4cf}.moreCard.c12{background:#ffe9f3}.moreCard.c13{background:#e7f7ff}.moreCard.c14{background:#eeeaff}.moreCard.c15{background:#e9f9e8}.moreCard.c16{background:#fff0dc}.moreCard.c17{background:#f7e8ff}.moreCard.c18{background:#e6f8f4}.tap{position:absolute;border:0;background:transparent;cursor:pointer}.card1{left:3%;top:36.15%;width:47%;height:16.56%}.card2{left:50%;top:36.15%;width:47%;height:16.56%}.card3{left:3%;top:53.25%;width:47%;height:15.91%}.card4{left:50%;top:53.25%;width:47%;height:15.91%}.card5{left:3%;top:69.70%;width:47%;height:15.80%}.card6{left:50%;top:69.70%;width:47%;height:15.80%}
 .statStars{position:absolute;left:9.5%;top:11.05%;width:22%;height:5.5%;display:flex;align-items:center;justify-content:center;font-size:25px;font-weight:900;color:#8a4b16;text-shadow:0 1px #fff;background:#fff0b9;border-radius:18px;z-index:3}.statDone{position:absolute;left:8.5%;top:19.35%;width:24%;height:6%;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:900;color:#74451f;background:#fff;border-radius:18px;z-index:3}
 .overlayScreen{display:none;position:fixed;inset:0;background:linear-gradient(#fff6fa,#f4e8ff);z-index:20;overflow:auto}.screen{max-width:440px;margin:auto;min-height:100vh;padding:14px 14px 30px}.top{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}.back,.mini{border:0;border-radius:14px;background:#fff;padding:9px 12px;box-shadow:0 4px 14px #8b63861c;font-weight:900;color:#714b69}.title{font-weight:900;font-size:18px}.progress{height:12px;background:#fff;border-radius:999px;overflow:hidden;margin-bottom:14px;box-shadow:inset 0 1px 4px #87637d18}.bar{height:100%;width:0;background:linear-gradient(90deg,#ff91b7,#c89cf0);transition:.3s}.questionCard{background:#fff;border-radius:28px;padding:20px;box-shadow:0 8px 24px #8e628d20}.miniMascot{font-size:58px;text-align:center}.q{font-size:23px;line-height:1.5;font-weight:900;text-align:center;min-height:90px;display:flex;align-items:center;justify-content:center}.answers{display:grid;grid-template-columns:1fr 1fr;gap:10px}.ans{border:0;border-radius:18px;padding:16px 8px;background:#fff0f5;color:#68465f;font-size:22px;font-weight:900;box-shadow:0 3px 8px #8e668d12}.ans.ok{background:#e7faef;outline:3px solid #8bd6a8}.ans.no{background:#fff0f0;outline:3px solid #f0a0a0}.feedback{text-align:center;min-height:30px;margin:12px 0;font-weight:900}.actions{display:flex;gap:8px}.btn{flex:1;border:0;border-radius:15px;padding:12px 8px;background:#f0e2fa;color:#684c70;font-weight:900}.primary{background:linear-gradient(135deg,#ff8fb4,#d49bea);color:#fff}.reward{display:none;text-align:center;background:#fff;border-radius:28px;padding:28px;box-shadow:0 10px 30px #8e628d25}.reward.show{display:block}.bigstars{font-size:38px;letter-spacing:3px}
-</style></head><body>
+
+/* ===== 瑄的 App 動畫與獎勵 ===== */
+#fxLayer{position:fixed;inset:0;pointer-events:none;z-index:9999;overflow:hidden}
+.starPop{position:absolute;font-size:34px;animation:starFly 900ms ease-out forwards;filter:drop-shadow(0 4px 5px #8d527555)}
+@keyframes starFly{0%{transform:translate(0,0) scale(.5) rotate(-15deg);opacity:0}20%{opacity:1}100%{transform:translate(var(--dx),var(--dy)) scale(1.35) rotate(20deg);opacity:0}}
+.correctBounce{animation:correctBounce .55s ease}
+@keyframes correctBounce{0%,100%{transform:scale(1)}40%{transform:scale(1.05)}70%{transform:scale(.98)}}
+.encourage{font-weight:900;color:#b44f78;font-size:19px;line-height:1.45;margin:10px 0}
+.encourageSmall{font-size:14px;color:#8f6478;margin-top:2px}
+#reward.show{display:flex}
+.rewardBox{max-width:360px;width:calc(100% - 36px);background:#fff8fc;border-radius:30px;padding:25px 20px 22px;text-align:center;box-shadow:0 20px 50px #6e476633;border:4px solid #ffd1e3;animation:rewardIn .5s cubic-bezier(.2,1.4,.4,1)}
+@keyframes rewardIn{from{transform:translateY(30px) scale(.85);opacity:0}to{transform:none;opacity:1}}
+.rewardMascot{font-size:72px;line-height:1;margin-bottom:5px;animation:wobble 1.2s infinite ease-in-out}
+@keyframes wobble{0%,100%{transform:rotate(-4deg) translateY(0)}50%{transform:rotate(4deg) translateY(-7px)}}
+.rewardTitle{font-size:26px;font-weight:1000;color:#c94f80;margin:5px 0}
+.rewardStars{font-size:29px;letter-spacing:4px;margin:8px 0 12px}
+.rewardText{font-size:16px;color:#76566a;margin-bottom:15px}
+.rewardChoices{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.rewardChoice{border:0;border-radius:18px;padding:15px 8px;background:linear-gradient(135deg,#ffd9e7,#fff0f6);color:#8f4166;font-weight:900;font-size:16px;box-shadow:0 5px 12px #8d55751c}
+.rewardChoice.alt{background:linear-gradient(135deg,#dff7ff,#eefcff);color:#397a95}
+.stickerWall{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:12px 0;min-height:40px}
+.sticker{font-size:38px;animation:stickerIn .45s both}
+@keyframes stickerIn{from{opacity:0;transform:scale(.2) rotate(-20deg)}to{opacity:1;transform:scale(1) rotate(0)}}
+.danceStage{font-size:72px;min-height:88px;display:flex;align-items:center;justify-content:center;gap:8px}
+.dancePenguin{animation:dance .5s infinite alternate ease-in-out}
+.dancePenguin:nth-child(2){animation-delay:.15s}
+.dancePenguin:nth-child(3){animation-delay:.3s}
+@keyframes dance{from{transform:translateY(8px) rotate(-8deg)}to{transform:translateY(-10px) rotate(8deg)}}
+.celebrateBtn{border:0;border-radius:18px;padding:13px 22px;background:#ff80aa;color:white;font-size:17px;font-weight:900}
+
+</style></head><body><div id="fxLayer"></div>
 <div class="app"><div class="home" id="home">
 <div class="statStars" id="homeStars">0 ⭐</div><div class="statDone" id="homeDone">0 / 5 題</div>
 <button class="tap card1" aria-label="動物加加樂" data-game="add"></button><button class="tap card2" aria-label="誰比較多" data-game="compare"></button><button class="tap card3" aria-label="小兔子跑掉了" data-game="sub"></button><button class="tap card4" aria-label="神秘數字" data-game="mystery"></button><button class="tap card5" aria-label="數字接龍" data-game="sequence"></button><button class="tap card6" aria-label="媽媽說錯了" data-game="wrong"></button>
-</div></div>
-<div class="overlayScreen" id="gameScreen"><div class="screen"><div class="top"><button class="back" id="back">← 回首頁</button><div class="title" id="gameTitle">數學遊戲</div><button class="mini" id="score">⭐ 0</button></div><div class="progress"><div class="bar" id="bar"></div></div>
+</div>
+<div class="moreGames">
+  <div class="moreTitle">✨ 18種數學遊戲，慢慢玩！</div><button class="dailyBtn" id="dailyBtn">🎲 幫瑄隨機挑今天的 5 題</button>
+  <div class="moreHint">每天挑 5 題就好，不用一次全部玩完 💗<br>答對有星星，完成 5 題還有小獎勵！</div>
+  <div class="moreGrid">
+    <button class="moreCard c1" data-game="add">🐰<b>動物加加樂</b><span>一起有幾隻？</span></button>
+    <button class="moreCard c2" data-game="compare">🐧<b>誰比較多？</b><span>誰多？誰少？</span></button>
+    <button class="moreCard c3" data-game="sub">🥕<b>小兔子跑掉了</b><span>還剩幾隻？</span></button>
+    <button class="moreCard c4" data-game="mystery">🔮<b>神秘數字</b><span>猜猜我是誰？</span></button>
+    <button class="moreCard c5" data-game="sequence">🔢<b>數字接龍</b><span>下一個是誰？</span></button>
+    <button class="moreCard c6" data-game="wrong">😝<b>媽媽說錯了！</b><span>我說對不對？</span></button>
+    <button class="moreCard c7" data-game="classify">🧸<b>分類小高手</b><span>哪一個不一樣？</span></button>
+    <button class="moreCard c8" data-game="order">📏<b>排排隊</b><span>誰大？誰小？</span></button>
+    <button class="moreCard c9" data-game="shape">🔺<b>形狀偵探</b><span>有幾個角？</span></button>
+    <button class="moreCard c10" data-game="position">🐧<b>位置小偵探</b><span>上面？下面？</span></button>
+    <button class="moreCard c11" data-game="pattern">🌈<b>規律接龍</b><span>下一個是什麼？</span></button>
+    <button class="moreCard c12" data-game="share">🍓<b>公平分一分</b><span>每人一樣多</span></button>
+    <button class="moreCard c13" data-game="count">🔢<b>數一數</b><span>一共有幾個？</span></button>
+    <button class="moreCard c14" data-game="neighbor">🏠<b>數字鄰居</b><span>前面和後面？</span></button>
+    <button class="moreCard c15" data-game="oneMore">➕<b>多一個少一個</b><span>多 1 是多少？</span></button>
+    <button class="moreCard c16" data-game="long">📐<b>誰比較長？</b><span>長一點還是短一點？</span></button>
+    <button class="moreCard c17" data-game="match">🧩<b>找一樣的</b><span>哪兩個一樣？</span></button>
+    <button class="moreCard c18" data-game="odd">👀<b>找出不一樣</b><span>哪一個偷偷變了？</span></button>
+  </div>
+</div></div><div class="overlayScreen" id="gameScreen"><div class="screen"><div class="top"><button class="back" id="back">← 回首頁</button><div class="title" id="gameTitle">數學遊戲</div><button class="mini" id="score">⭐ 0</button></div><div class="progress"><div class="bar" id="bar"></div></div>
 <div class="questionCard" id="questionCard"><div class="miniMascot">🐧💗</div><div class="q" id="question"></div><div class="answers" id="answers"></div><div class="feedback" id="feedback"></div><div class="actions"><button class="btn" id="hint">💡 提示</button><button class="btn" id="speak">🔊 聽題目</button><button class="btn primary" id="next">下一題</button></div></div>
 <div class="reward" id="reward"><div style="font-size:24px;font-weight:900">🎉 今天完成 5 題啦！</div><div class="bigstars">⭐⭐⭐⭐⭐</div><p>瑄今天很棒！可以選一個小小獎勵囉 🎁</p><button class="btn primary" id="rewardBack">回首頁</button></div>
 </div></div>
 <script>
-const G={add:{title:"🐰 動物加加樂",make(){let a=r(1,3),b=r(1,3),c=r(0,2),ans=a+b+c;return{q:`瑄有 ${a} 隻小兔子，媽媽有 ${b} 隻企鵝，阿嬤有 ${c} 隻小貓，全部有幾隻？`,ans,h:`先算 ${a}+${b}，再把 ${c} 加進來。`}}},compare:{title:"🐧 誰比較多？",make(){let a=r(1,5),b=r(1,5);while(a===b)b=r(1,5);let ans=a>b?"瑄":"媽媽";return{q:`瑄有 ${a} 顆糖果，媽媽有 ${b} 顆，誰比較多？`,ans,opts:["瑄","媽媽"],h:"看看哪一邊的數字比較大。"}}},sub:{title:"🥕 小兔子跑掉了",make(){let a=r(3,6),b=r(1,a-1);return{q:`草地上有 ${a} 隻兔子，${b} 隻跑走了，還剩幾隻？`,ans:a-b,h:`想想看：${a} 減掉 ${b}。`}}},mystery:{title:"🔮 神秘數字",make(){let a=r(1,5),b=r(1,3);return{q:`我心裡有一個數字，加上 ${b} 會變成 ${a+b}，原來是多少？`,ans:a,h:"可以從答案往回數喔！"}}},sequence:{title:"🔢 數字接龍",make(){let a=r(1,4);return{q:`數字接龍：${a}、${a+1}、${a+2}、？`,ans:a+3,h:"一個一個往後數！"}}},wrong:{title:"😝 媽媽說錯了！",make(){let a=r(1,4),b=r(1,3),correct=a+b,wrong=correct+(Math.random()<.5?-1:1);return{q:`媽媽說：${a} + ${b} = ${wrong}。媽媽說對嗎？`,ans:wrong===correct?"對":"錯",opts:["對","錯"],h:`其實 ${a}+${b} 是 ${correct} 喔！`}}}};
-function r(a,b){return Math.floor(Math.random()*(b-a+1))+a}const today=new Date().toISOString().slice(0,10);let state=JSON.parse(localStorage.getItem("xuanMathOfficial")||"null");if(!state||state.date!==today)state={date:today,done:0,stars:0};let type="add",cur=null,answered=false;const $=id=>document.getElementById(id);
-function save(){localStorage.setItem("xuanMathOfficial",JSON.stringify(state))}function updateHome(){$("homeStars").textContent=state.stars+" ⭐";$("homeDone").textContent=state.done+" / 5 題"}function opts(ans,custom){if(custom)return custom;if(typeof ans!=="number")return[ans];let s=new Set([ans]);while(s.size<4)s.add(Math.max(0,ans+r(-2,2)));return[...s].sort((a,b)=>a-b)}
+const G={
+add:{title:"🐰 動物加加樂",make(){let a=r(1,3),b=r(1,3),c=r(0,2),ans=a+b+c;return{q:`瑄有 ${a} 隻小兔子，媽媽有 ${b} 隻企鵝，阿嬤有 ${c} 隻小貓，全部有幾隻？`,ans,h:`先算 ${a}+${b}，再把 ${c} 加進來。`}}},
+compare:{title:"🐧 誰比較多？",make(){let a=r(1,6),b=r(1,6);while(a===b)b=r(1,6);let ans=a>b?"瑄":"媽媽";return{q:`瑄有 ${a} 顆糖果，媽媽有 ${b} 顆，誰比較多？`,ans,opts:["瑄","媽媽"],h:"看看哪一邊的數字比較大。"}}},
+sub:{title:"🥕 小兔子跑掉了",make(){let a=r(3,7),b=r(1,a-1);return{q:`草地上有 ${a} 隻兔子，${b} 隻跑走了，還剩幾隻？`,ans:a-b,h:`想想看：${a} 減掉 ${b}。`}}},
+mystery:{title:"🔮 神秘數字",make(){let a=r(1,6),b=r(1,3);return{q:`我心裡有一個數字，加上 ${b} 會變成 ${a+b}，原來是多少？`,ans:a,h:"可以從答案往回數喔！"}}},
+sequence:{title:"🔢 數字接龍",make(){let a=r(1,4),step=r(1,2);return{q:`數字接龍：${a}、${a+step}、${a+2*step}、？`,ans:a+3*step,h:`每次都增加 ${step}。`}}},
+wrong:{title:"😝 媽媽說錯了！",make(){let a=r(1,4),b=r(1,3),correct=a+b,wrong=correct+(Math.random()<.5?-1:1);return{q:`媽媽說：${a} + ${b} = ${wrong}。媽媽說對嗎？`,ans:wrong===correct?"對":"錯",opts:["對","錯"],h:`其實 ${a}+${b} 是 ${correct} 喔！`}}},
+classify:{title:"🧸 分類小高手",make(){let sets=[["蘋果","香蕉","草莓","小兔子"],["汽車","公車","火車","蘋果"],["紅色","黃色","藍色","小熊"]];let s=sets[r(0,sets.length-1)],ans=s[3];return{q:`哪一個跟其他三個不一樣？`,ans,opts:s,h:"看看三個是不是同一類的東西。"}}},
+order:{title:"📏 排排隊",make(){let a=r(1,3),b=r(a+1,6);return{q:`小熊有 ${a} 顆球，小兔有 ${b} 顆球。誰比較多？`,ans:"小兔",opts:["小熊","小兔"],h:"比較兩個數字，哪個比較大？"}}},
+shape:{title:"🔺 形狀偵探",make(){let opts=["圓形","三角形","正方形"],ans=opts[r(0,2)];return{q:`${ans} 有幾個角？`,ans:ans==="圓形"?0:ans==="三角形"?3:4,opts:[0,3,4],h:"數一數形狀的角角。"}}},
+position:{title:"🐧 位置小偵探",make(){let opts=["上面","下面","旁邊"],ans=opts[r(0,2)];return{q:`小企鵝站在小兔子的 ${ans}。請問小企鵝在哪裡？`,ans,opts,h:"仔細聽媽媽說的是哪一個位置。"}}},
+pattern:{title:"🌈 規律接龍",make(){let a=r(1,3),b=a+1;return{q:`看規律：${a}、${b}、${a}、${b}、？`,ans:a,opts:[a,b,a+2],h:"兩個數字一直輪流出現。"}}},
+share:{title:"🍓 公平分一分",make(){let people=r(2,3),each=r(1,3),total=people*each;return{q:`有 ${total} 顆草莓，平均分給 ${people} 個小朋友，每人幾顆？`,ans:each,h:`想一想：${each} 顆 × ${people} 個小朋友 = ${total} 顆。`}}},
+count:{title:"🔢 數一數",make(){let n=r(2,7),items=["🐰","⭐","🍎","🐧","🧸"],item=items[r(0,items.length-1)];return{q:`請數一數：${item.repeat(n)} 一共有幾個？`,ans:n,h:"慢慢一個一個數，不要急。"}}},
+neighbor:{title:"🏠 數字鄰居",make(){let n=r(2,5),which=Math.random()<.5?"前面":"後面",ans=which==="前面"?n-1:n+1;return{q:`數字 ${n} 的${which}一個數字是？`,ans,h:`從 ${n} 往${which}數一格。`}}},
+oneMore:{title:"➕ 多一個少一個",make(){let n=r(1,6),more=Math.random()<.5,ans=more?n+1:n-1;return{q:`現在有 ${n} 顆星星，${more?"多 1 顆":"少 1 顆"}，變成幾顆？`,ans,h:more?`從 ${n} 再數 1 個。`:`從 ${n} 往回數 1 個。`}}},
+long:{title:"📐 誰比較長？",make(){let opts=["鉛筆","橡皮擦","尺"],ans=opts[r(0,2)];let hint=ans==="尺"?"尺通常比另外兩個長。":"想像把三樣東西排在一起比較長度。";return{q:`媽媽說：${ans} 通常比較長。你覺得對嗎？`,ans:"對",opts:["對","不對"],h:hint}}},
+match:{title:"🧩 找一樣的",make(){let pairs=[["🐰","🐰","🐧"],["⭐","🍎","⭐"],["🧸","🧸","🍓"],["🐶","🐱","🐶"]],p=pairs[r(0,pairs.length-1)];return{q:`哪一個圖案跟第一個 ${p[0]} 一樣？`,ans:p[0],opts:[p[1],p[2]],h:"看清楚圖案的樣子。"}}},
+odd:{title:"👀 找出不一樣",make(){let sets=[["🍎","🍎","🍎","🍌"],["🐰","🐰","🐱","🐰"],["⭐","🌟","⭐","⭐"],["🟢","🟢","🔵","🟢"]];let s=sets[r(0,sets.length-1)],ans=s[2];return{q:`找一找：${s.join(" ")}，哪一個不一樣？`,ans,opts:[...new Set(s)],h:"慢慢看每一個，找出偷偷變掉的那個。"}}}
+};function r(a,b){return Math.floor(Math.random()*(b-a+1))+a}const today=new Date().toISOString().slice(0,10);let state=JSON.parse(localStorage.getItem("xuanMathOfficial")||"null");if(!state||state.date!==today)state={date:today,done:0,stars:0};let type="add",cur=null,answered=false;const $=id=>document.getElementById(id);
+function save(){localStorage.setItem("xuanMathOfficial",JSON.stringify(state))}function updateHome(){$("homeStars").textContent=state.stars+" ⭐";$("homeDone").textContent=state.done+" / 5 題"}function opts(ans,custom){if(custom)return [...new Set(custom)];if(typeof ans!=="number")return[ans];let s=new Set([ans]);while(s.size<4)s.add(Math.max(0,ans+r(-2,2)));return[...s].sort((a,b)=>a-b)}
 function openGame(t){type=t;answered=false;$("home").style.display="none";$("gameScreen").style.display="block";$("reward").classList.remove("show");$("questionCard").style.display="block";newQ()}
 function newQ(){answered=false;$("feedback").textContent="";cur=G[type].make();$("gameTitle").textContent=G[type].title;$("question").textContent=cur.q;$("answers").innerHTML="";opts(cur.ans,cur.opts).forEach(v=>{let b=document.createElement("button");b.className="ans";b.textContent=v;b.onclick=()=>check(v,b);$("answers").appendChild(b)});$("score").textContent="⭐ "+state.stars;$("bar").style.width=Math.min(100,state.done/5*100)+"%"}
-function check(v,b){if(answered)return;let ok=String(v)===String(cur.ans);if(ok){answered=true;state.done++;state.stars++;b.classList.add("ok");$("feedback").textContent="答對了！⭐ 瑄好棒！";save();$("score").textContent="⭐ "+state.stars;$("bar").style.width=Math.min(100,state.done/5*100)+"%";updateHome();if(state.done>=5)setTimeout(()=>{$("questionCard").style.display="none";$("reward").classList.add("show")},450)}else{$("feedback").textContent="再想一下～💗 按提示看看";b.classList.add("no")}}
-$("hint").onclick=()=>{$("feedback").textContent="💡 "+cur.h};$("speak").onclick=()=>{if("speechSynthesis"in window){let u=new SpeechSynthesisUtterance(cur.q);u.lang="zh-TW";speechSynthesis.cancel();speechSynthesis.speak(u)}};$("next").onclick=()=>newQ();$("back").onclick=()=>{$("gameScreen").style.display="none";$("home").style.display="block";updateHome()};$("rewardBack").onclick=()=>{$("reward").classList.remove("show");$("questionCard").style.display="block";$("gameScreen").style.display="none";$("home").style.display="block";updateHome()};document.querySelectorAll("[data-game]").forEach(b=>b.onclick=()=>openGame(b.dataset.game));updateHome();
-</script></body></html>
+function check(v,b){if(answered)return;let ok=String(v)===String(cur.ans);if(ok){answered=true;state.done++;state.stars++;b.classList.add("ok");$("feedback").textContent="答對了！⭐ 瑄好棒！";save();$("score").textContent="⭐ "+state.stars;$("bar").style.width=Math.min(100,state.done/5*100)+"%";updateHome();if(!dailyMode && state.done>=5)setTimeout(()=>{$("questionCard").style.display="none";$("reward").classList.add("show")},450)}else{$("feedback").textContent="再想一下～💗 按提示看看";b.classList.add("no")}}
+$("hint").onclick=()=>{$("feedback").textContent="💡 "+cur.h};$("speak").onclick=()=>{if("speechSynthesis"in window){let u=new SpeechSynthesisUtterance(cur.q);u.lang="zh-TW";speechSynthesis.cancel();speechSynthesis.speak(u)}};$("back").onclick=()=>{dailyMode=false;$("gameScreen").style.display="none";$("home").style.display="block";updateHome()};$("rewardBack").onclick=()=>{dailyMode=false;$("reward").classList.remove("show");$("questionCard").style.display="block";$("gameScreen").style.display="none";$("home").style.display="block";updateHome()};let dailyQueue=[],dailyIndex=0,dailyMode=false;
+function startDaily(){dailyMode=true;dailyIndex=0;dailyQueue=[...Object.keys(G)].sort(()=>Math.random()-.5).slice(0,5);openGame(dailyQueue[0]);}
+const oldNewQ=newQ;
+newQ=function(){oldNewQ();};
+$("dailyBtn").onclick=startDaily;
+$("next").onclick=()=>{
+  if(!answered){$("feedback").textContent="先選一個答案喔～💗";return}
+  if(dailyMode){
+    dailyIndex++;
+    if(dailyIndex<dailyQueue.length){type=dailyQueue[dailyIndex];newQ();return}
+    dailyMode=false;$("questionCard").style.display="none";$("reward").classList.add("show");return;
+  }
+  newQ();
+};
+document.querySelectorAll("[data-game]").forEach(b=>b.onclick=()=>{dailyMode=false;openGame(b.dataset.game)});
+updateHome();
+</script>
+<script>
+/* ===== 瑄的互動回饋 ===== */
+const cheerLines = [
+  ["沒關係～再想一下，瑄一定可以的！💗","小小偵探慢慢找答案就好～"],
+  ["答錯也沒關係！我們一起想想看 🐧","數學就是要試試看，不用怕錯！"],
+  ["差一點點！瑄再看一次題目～🌷","媽媽陪妳一起想！"],
+  ["沒問題～下一題繼續挑戰！⭐","錯一次不代表不會，瑄正在學習喔！"]
+];
+const winLines = [
+  ["答對了！瑄好厲害！⭐","這顆星星是瑄自己努力拿到的！"],
+  ["耶～～答對！🎉","媽媽幫瑄記一顆星星！"],
+  ["太棒啦！✨","瑄剛剛有認真想耶！"],
+  ["答對！小企鵝都在替瑄鼓掌！🐧👏","再來一題！"]
+];
+
+function showStars(){
+  const layer=document.getElementById("fxLayer");
+  if(!layer)return;
+  for(let i=0;i<9;i++){
+    const s=document.createElement("div");
+    s.className="starPop";s.textContent=i%3===0?"🌟":"⭐";
+    s.style.left=(20+Math.random()*60)+"%";
+    s.style.top=(35+Math.random()*25)+"%";
+    s.style.setProperty("--dx",(Math.random()*180-90)+"px");
+    s.style.setProperty("--dy",(-100-Math.random()*170)+"px");
+    s.style.animationDelay=(Math.random()*180)+"ms";
+    layer.appendChild(s);
+    setTimeout(()=>s.remove(),1200);
+  }
+}
+
+function showCheer(ok){
+  const a=ok?winLines[Math.floor(Math.random()*winLines.length)]:cheerLines[Math.floor(Math.random()*cheerLines.length)];
+  const e=document.getElementById("encourage"), es=document.getElementById("encourageSmall");
+  if(e){e.textContent=a[0];e.style.display="block";e.classList.remove("correctBounce");void e.offsetWidth;if(ok)e.classList.add("correctBounce")}
+  if(es){es.textContent=a[1];es.style.display="block"}
+  if(ok)showStars();
+}
+
+function makeRewardStars(){
+  const n=Math.min(5, Number(localStorage.getItem("xuanStars")||0));
+  return "⭐".repeat(n)+"☆".repeat(5-n);
+}
+
+function showDance(){
+  const area=document.getElementById("rewardArea");
+  area.style.display="block";
+  area.innerHTML='<div class="danceStage"><span class="dancePenguin">🐧</span><span class="dancePenguin">🐧</span><span class="dancePenguin">🐧</span></div><div class="encourage">小企鵝舞蹈時間！💃🕺</div><div class="encourageSmall">咚咚咚～恭喜瑄完成今天的 5 題！</div>';
+  document.getElementById("rewardDone").style.display="inline-block";
+  document.getElementById("danceBtn").style.display="none";
+  document.getElementById("stickerBtn").style.display="none";
+  showStars();
+}
+
+function showSticker(){
+  const stickers=["🌸","🦄","🌈","🍓","🐧","⭐","🎀","🦋","🍭","🧸"];
+  const chosen=stickers[Math.floor(Math.random()*stickers.length)];
+  const area=document.getElementById("rewardArea");
+  area.style.display="block";
+  area.innerHTML='<div class="stickerWall">'+chosen+'<span class="sticker">'+chosen+'</span><span class="sticker">'+chosen+'</span></div><div class="encourage">瑄獲得今日貼紙！🎁</div><div class="encourageSmall">把它收藏起來，明天再來拿一張！</div>';
+  document.getElementById("rewardDone").style.display="inline-block";
+  document.getElementById("danceBtn").style.display="none";
+  document.getElementById("stickerBtn").style.display="none";
+  showStars();
+}
+
+document.addEventListener("click",(ev)=>{
+  const b=ev.target.closest("button");
+  if(!b)return;
+  /* 若原程式已有 answered 與 current answer 邏輯，利用 feedback 文字判斷結果並給動畫。
+     這裡不攔截按鈕，只在短暫延遲後讀取畫面狀態。 */
+  if(b.id==="check" || b.id==="submit" || b.classList.contains("answerBtn")){
+    setTimeout(()=>{
+      const f=document.getElementById("feedback");
+      if(!f)return;
+      const text=(f.textContent||"");
+      const ok=/答對|正確|太棒|恭喜/.test(text);
+      showCheer(ok);
+    },80);
+  }
+});
+
+document.getElementById("danceBtn")?.addEventListener("click",showDance);
+document.getElementById("stickerBtn")?.addEventListener("click",showSticker);
+document.getElementById("rewardDone")?.addEventListener("click",()=>{
+  document.getElementById("reward").classList.remove("show");
+  document.getElementById("rewardArea").style.display="none";
+  document.getElementById("rewardDone").style.display="none";
+  document.getElementById("danceBtn").style.display="";
+  document.getElementById("stickerBtn").style.display="";
+  document.getElementById("gameScreen").style.display="none";
+  document.getElementById("home").style.display="block";
+  if(typeof updateHome==="function")updateHome();
+});
+
+/* 每次開啟遊戲時，清掉上一題的鼓勵文字 */
+const oldOpenGame = window.openGame;
+if(typeof oldOpenGame==="function"){
+  window.openGame=function(...args){
+    const e=document.getElementById("encourage"), es=document.getElementById("encourageSmall");
+    if(e)e.style.display="none"; if(es)es.style.display="none";
+    return oldOpenGame.apply(this,args);
+  };
+}
+</script>
+
+</body></html>
