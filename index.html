@@ -5,7 +5,7 @@
 <title>宥瑄的數學遊戲</title>
 <style>
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html,body{margin:0;background:#f9dce7;font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","Microsoft JhengHei",sans-serif;color:#70432c}button{font:inherit}.app{width:100%;max-width:440px;margin:auto;min-height:100vh}
-.home{position:relative;width:100%;aspect-ratio:853/1704;background:url("xuan-home.webp") center -72px/100% auto no-repeat;overflow:hidden}
+.home{position:relative;width:100%;aspect-ratio:1024/1478;background:url("xuan-home-clean.webp") center top/100% 100% no-repeat;overflow:hidden}
 .moreGames{padding:18px 14px 38px;background:linear-gradient(#f9dce7,#fff3f7)}.moreTitle{text-align:center;font-size:22px;font-weight:900;color:#b94d78;margin:4px 0 4px}.moreHint{text-align:center;font-size:13px;color:#9b6b82;margin:0 0 10px}.dailyBtn{display:block;width:100%;border:0;border-radius:18px;padding:13px;margin:0 0 14px;background:linear-gradient(135deg,#ff8fb4,#cda0ef);color:#fff;font-weight:900;font-size:16px;box-shadow:0 5px 14px #9b66831f}.moreGrid{display:grid;grid-template-columns:1fr 1fr;gap:11px}.moreCard{border:0;border-radius:20px;padding:14px 7px;background:#fff;box-shadow:0 5px 16px #8e628d1f;color:#68465f;display:flex;flex-direction:column;gap:4px;align-items:center;font-weight:900;min-height:92px}.moreCard span{font-size:12px;font-weight:700;opacity:.8}.moreCard b{font-size:16px}.moreCard.c1{background:#fff3d8}.moreCard.c2{background:#e7f7ff}.moreCard.c3{background:#e8faed}.moreCard.c4{background:#eee7ff}.moreCard.c5{background:#ffe8f2}.moreCard.c6{background:#fff1dc}.moreCard.c7{background:#fff0df}.moreCard.c8{background:#e8f5ff}.moreCard.c9{background:#f1e9ff}.moreCard.c10{background:#e7fbf7}.moreCard.c11{background:#fff4cf}.moreCard.c12{background:#ffe9f3}.moreCard.c13{background:#e7f7ff}.moreCard.c14{background:#eeeaff}.moreCard.c15{background:#e9f9e8}.moreCard.c16{background:#fff0dc}.moreCard.c17{background:#f7e8ff}.moreCard.c18{background:#e6f8f4}.tap{position:absolute;border:0;background:transparent;cursor:pointer}.card1{left:3%;top:36.15%;width:47%;height:16.56%}.card2{left:50%;top:36.15%;width:47%;height:16.56%}.card3{left:3%;top:53.25%;width:47%;height:15.91%}.card4{left:50%;top:53.25%;width:47%;height:15.91%}.card5{left:3%;top:69.70%;width:47%;height:15.80%}.card6{left:50%;top:69.70%;width:47%;height:15.80%}
 .statStars{position:absolute;left:9.5%;top:11.05%;width:22%;height:5.5%;display:flex;align-items:center;justify-content:center;font-size:25px;font-weight:900;color:#8a4b16;text-shadow:0 1px #fff;background:#fff0b9;border-radius:18px;z-index:3}.statDone{position:absolute;left:8.5%;top:19.35%;width:24%;height:6%;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:900;color:#74451f;background:#fff;border-radius:18px;z-index:3}
 .overlayScreen{display:none;position:fixed;inset:0;background:linear-gradient(#fff6fa,#f4e8ff);z-index:20;overflow:auto}.screen{max-width:440px;margin:auto;min-height:100vh;padding:14px 14px 30px}.top{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}.back,.mini{border:0;border-radius:14px;background:#fff;padding:9px 12px;box-shadow:0 4px 14px #8b63861c;font-weight:900;color:#714b69}.title{font-weight:900;font-size:18px}.progress{height:12px;background:#fff;border-radius:999px;overflow:hidden;margin-bottom:14px;box-shadow:inset 0 1px 4px #87637d18}.bar{height:100%;width:0;background:linear-gradient(90deg,#ff91b7,#c89cf0);transition:.3s}.questionCard{background:#fff;border-radius:28px;padding:20px;box-shadow:0 8px 24px #8e628d20}.miniMascot{font-size:58px;text-align:center}.q{font-size:23px;line-height:1.5;font-weight:900;text-align:center;min-height:90px;display:flex;align-items:center;justify-content:center}.answers{display:grid;grid-template-columns:1fr 1fr;gap:10px}.ans{border:0;border-radius:18px;padding:16px 8px;background:#fff0f5;color:#68465f;font-size:22px;font-weight:900;box-shadow:0 3px 8px #8e668d12}.ans.ok{background:#e7faef;outline:3px solid #8bd6a8}.ans.no{background:#fff0f0;outline:3px solid #f0a0a0}.feedback{text-align:center;min-height:30px;margin:12px 0;font-weight:900}.actions{display:flex;gap:8px}.btn{flex:1;border:0;border-radius:15px;padding:12px 8px;background:#f0e2fa;color:#684c70;font-weight:900}.primary{background:linear-gradient(135deg,#ff8fb4,#d49bea);color:#fff}.reward{display:none;text-align:center;background:#fff;border-radius:28px;padding:28px;box-shadow:0 10px 30px #8e628d25}.reward.show{display:block}.bigstars{font-size:38px;letter-spacing:3px}
@@ -40,12 +40,32 @@
 .celebrateBtn{border:0;border-radius:18px;padding:13px 22px;background:#ff80aa;color:white;font-size:17px;font-weight:900}
 
 
-/* ===== 完整兒童 App 導覽 ===== */
-.bottomNav{position:fixed;left:50%;bottom:0;transform:translateX(-50%);width:min(440px,100%);height:68px;background:#fff;border-top:3px solid #ffd3e2;display:grid;grid-template-columns:repeat(3,1fr);z-index:120;box-shadow:0 -6px 20px rgba(124,76,104,.10)}
-.navBtn{border:0;background:#fff;color:#806174;font-weight:900;font-size:13px}
-.navBtn.active{color:#e6578b;background:#fff2f7}
-.navBtn .ni{display:block;font-size:23px;line-height:1.05}
-.moreGames{padding-bottom:110px}
+
+/* ===== 手機滿版 App：四個主導覽按鈕直接疊在主視覺 ===== */
+.bottomNav{position:absolute;left:0;bottom:0;width:100%;height:5.2%;display:grid;grid-template-columns:repeat(4,1fr);z-index:30;background:transparent;border:0;box-shadow:none}
+.navBtn{border:0;background:transparent;color:transparent;font-weight:900;font-size:13px;padding:0}
+.navBtn .ni{display:none}
+.navBtn.active{color:transparent;background:transparent}
+.navBtn:active{background:rgba(255,255,255,.12);border-radius:22px}
+
+/* 動態數字蓋住主視覺中的靜態範例數字，避免重疊 */
+.statStars,.statDone{z-index:10;display:flex;flex-direction:column;justify-content:center;text-align:center;color:#75451f;box-shadow:none}
+.statStars{left:4.8%;top:15.7%;width:25%;height:9.0%;font-size:18px;line-height:1.1;background:#fff0b9;border:2px solid #f5cb67;border-radius:24px}
+.statStars .statLabel,.statDone .statLabel{font-size:13px;color:#c84f80;font-weight:1000}
+.statStars .statValue{font-size:24px;color:#75451f;font-weight:1000}
+.statDone{left:4.1%;top:24.0%;width:27%;height:11.8%;font-size:18px;line-height:1.05;background:#fff;border:3px solid #f2d4e0;border-radius:24px}
+.statDone .statValue{font-size:22px;color:#75451f;font-weight:1000}
+.statDone .miniStars{font-size:15px;letter-spacing:1px;color:#9aa8c3;margin-top:5px}
+
+/* 主視覺六個遊戲按鈕，精準對應圖片中的「開始遊戲」區 */
+.card1{left:5.2%;top:42.7%;width:44.0%;height:18.6%}
+.card2{left:50.0%;top:42.7%;width:44.0%;height:18.6%}
+.card3{left:5.2%;top:62.0%;width:44.0%;height:18.5%}
+.card4{left:50.0%;top:62.0%;width:44.0%;height:18.5%}
+.card5{left:5.2%;top:81.0%;width:44.0%;height:13.8%}
+.card6{left:50.0%;top:81.0%;width:44.0%;height:13.8%}
+
+.moreGames{padding:18px 14px 38px;background:linear-gradient(#f9dce7,#fff3f7)}
 .appModal{display:none;position:fixed;inset:0;background:rgba(82,52,76,.38);z-index:200;align-items:center;justify-content:center;padding:16px}
 .appModal.show{display:flex}
 .appModalBox{width:100%;max-width:390px;background:#fff8fc;border:4px solid #fff;border-radius:30px;padding:22px;box-shadow:0 18px 50px rgba(81,53,75,.25)}
@@ -59,12 +79,23 @@
 .settingToggle.on:after{margin-left:25px}
 .appDanger{background:#ffe2e2!important;color:#b44b4b!important}
 .navHint{margin:12px 0 0;text-align:center;font-size:12px;color:#9b7588;line-height:1.5}
+@media (max-width:440px){
+  body{background:#f9dce7}
+  .app{max-width:440px}
+  .moreGames{padding-bottom:32px}
+}
+
 
 </style></head><body><div id="fxLayer"></div>
 <div class="app"><div class="home" id="home">
-<div class="statStars" id="homeStars">0 ⭐</div><div class="statDone" id="homeDone">0 / 5 題</div>
+<div class="statStars" id="homeStars"><div class="statLabel">⭐ 我的星星</div><div class="statValue">0 ⭐</div></div><div class="statDone" id="homeDone"><div class="statLabel">📅 今天已完成</div><div class="statValue">0 / 5 題</div><div class="miniStars">☆☆☆☆☆</div></div>
 <button class="tap card1" aria-label="動物加加樂" data-game="add"></button><button class="tap card2" aria-label="誰比較多" data-game="compare"></button><button class="tap card3" aria-label="小兔子跑掉了" data-game="sub"></button><button class="tap card4" aria-label="神秘數字" data-game="mystery"></button><button class="tap card5" aria-label="數字接龍" data-game="sequence"></button><button class="tap card6" aria-label="媽媽說錯了" data-game="wrong"></button>
-</div>
+<nav class="bottomNav" aria-label="主要功能">
+  <button class="navBtn active" data-nav="home" aria-label="回首頁">回首頁</button>
+  <button class="navBtn" data-nav="stars" aria-label="我的星星">我的星星</button>
+  <button class="navBtn" data-nav="records" aria-label="遊戲記錄">遊戲記錄</button>
+  <button class="navBtn" data-nav="settings" aria-label="設定">設定</button>
+</nav></div>
 <div class="moreGames">
   <div class="moreTitle">✨ 18種數學遊戲，慢慢玩！</div><button class="dailyBtn" id="dailyBtn">🎲 幫瑄隨機挑今天的 5 題</button>
   <div class="moreHint">每天挑 5 題就好，不用一次全部玩完 💗<br>答對有星星，完成 5 題還有小獎勵！</div>
@@ -113,7 +144,15 @@ long:{title:"📐 誰比較長？",make(){let opts=["鉛筆","橡皮擦","尺"],
 match:{title:"🧩 找一樣的",make(){let pairs=[["🐰","🐰","🐧"],["⭐","🍎","⭐"],["🧸","🧸","🍓"],["🐶","🐱","🐶"]],p=pairs[r(0,pairs.length-1)];return{q:`哪一個圖案跟第一個 ${p[0]} 一樣？`,ans:p[0],opts:[p[1],p[2]],h:"看清楚圖案的樣子。"}}},
 odd:{title:"👀 找出不一樣",make(){let sets=[["🍎","🍎","🍎","🍌"],["🐰","🐰","🐱","🐰"],["⭐","🌟","⭐","⭐"],["🟢","🟢","🔵","🟢"]];let s=sets[r(0,sets.length-1)],ans=s[2];return{q:`找一找：${s.join(" ")}，哪一個不一樣？`,ans,opts:[...new Set(s)],h:"慢慢看每一個，找出偷偷變掉的那個。"}}}
 };function r(a,b){return Math.floor(Math.random()*(b-a+1))+a}const today=new Date().toISOString().slice(0,10);let state=JSON.parse(localStorage.getItem("xuanMathOfficial")||"null");if(!state||state.date!==today)state={date:today,done:0,stars:0};let type="add",cur=null,answered=false;const $=id=>document.getElementById(id);
-function save(){localStorage.setItem("xuanMathOfficial",JSON.stringify(state))}function updateHome(){$("homeStars").textContent=state.stars+" ⭐";$("homeDone").textContent=state.done+" / 5 題"}function opts(ans,custom){if(custom)return [...new Set(custom)];if(typeof ans!=="number")return[ans];let s=new Set([ans]);while(s.size<4)s.add(Math.max(0,ans+r(-2,2)));return[...s].sort((a,b)=>a-b)}
+function save(){localStorage.setItem("xuanMathOfficial",JSON.stringify(state))}function updateHome(){
+  $("homeStars").innerHTML='<div class="statLabel">⭐ 我的星星</div><div class="statValue">'+state.stars+' ⭐</div>';
+  $("homeDone").innerHTML='<div class="statLabel">📅 今天已完成</div><div class="statValue">'+state.done+' / 5 題</div><div class="miniStars">'+("★".repeat(Math.min(5,state.done))+"☆".repeat(5-Math.min(5,state.done)))+'</div>';
+  const tv=document.getElementById("todayStarsView"), tp=document.getElementById("todayProgressView");
+  if(tv)tv.textContent="今天得到 "+state.stars+" 顆";
+  if(tp)tp.textContent=state.done+" / 5 題";
+  const total=document.getElementById("totalStarsView");
+  if(total)total.textContent=state.stars+" 顆";
+}function opts(ans,custom){if(custom)return [...new Set(custom)];if(typeof ans!=="number")return[ans];let s=new Set([ans]);while(s.size<4)s.add(Math.max(0,ans+r(-2,2)));return[...s].sort((a,b)=>a-b)}
 function openGame(t){type=t;answered=false;$("home").style.display="none";$("gameScreen").style.display="block";$("reward").classList.remove("show");$("questionCard").style.display="block";newQ()}
 function newQ(){answered=false;$("feedback").textContent="";cur=G[type].make();$("gameTitle").textContent=G[type].title;$("question").textContent=cur.q;$("answers").innerHTML="";opts(cur.ans,cur.opts).forEach(v=>{let b=document.createElement("button");b.className="ans";b.textContent=v;b.onclick=()=>check(v,b);$("answers").appendChild(b)});$("score").textContent="⭐ "+state.stars;$("bar").style.width=Math.min(100,state.done/5*100)+"%"}
 function check(v,b){if(answered)return;let ok=String(v)===String(cur.ans);if(ok){answered=true;state.done++;state.stars++;b.classList.add("ok");$("feedback").textContent="答對了！⭐ 瑄好棒！";save();$("score").textContent="⭐ "+state.stars;$("bar").style.width=Math.min(100,state.done/5*100)+"%";updateHome();if(!dailyMode && state.done>=5)setTimeout(()=>{$("questionCard").style.display="none";$("reward").classList.add("show")},450)}else{$("feedback").textContent="再想一下～💗 按提示看看";b.classList.add("no")}}
@@ -241,11 +280,21 @@ if(typeof oldOpenGame==="function"){
 </script>
 
 
-<nav class="bottomNav" aria-label="主要功能">
-  <button class="navBtn active" data-nav="home"><span class="ni">🏠</span>回首頁</button>
-  <button class="navBtn" data-nav="records"><span class="ni">📖</span>遊戲記錄</button>
-  <button class="navBtn" data-nav="settings"><span class="ni">⚙️</span>設定</button>
-</nav>
+
+
+
+<div class="appModal" id="starsModal">
+  <div class="appModalBox">
+    <div class="appModalHead"><span>⭐ 我的星星</span><button class="appClose" data-app-close="starsModal">×</button></div>
+    <div style="text-align:center;padding:18px 0 8px">
+      <div style="font-size:52px">⭐</div>
+      <div id="totalStarsView" style="font-size:34px;font-weight:1000;color:#b94d78">0 顆</div>
+      <div id="todayStarsView" style="font-weight:900;color:#8f687d;margin-top:4px">今天得到 0 顆</div>
+    </div>
+    <div class="recordLine"><span>🌟 今天進度</span><span id="todayProgressView">0 / 5 題</span></div>
+    <p class="navHint">每答對一題，就幫瑄收集一顆星星！💗</p>
+  </div>
+</div>
 
 <div class="appModal" id="recordsModal">
   <div class="appModalBox">
@@ -270,96 +319,70 @@ if(typeof oldOpenGame==="function"){
     <p class="navHint">目前設計成手機 App 介面，所有按鍵都可以直接操作。</p>
   </div>
 </div>
-
-
 <script>
-/* ===== 完整 App 導覽 ===== */
+/* ===== 四個主導覽按鈕 ===== */
 (function(){
   const navButtons=document.querySelectorAll(".navBtn");
   const recordsModal=document.getElementById("recordsModal");
+  const starsModal=document.getElementById("starsModal");
   const settingsModal=document.getElementById("settingsModal");
   const recordsContent=document.getElementById("recordsContent");
   const soundToggle=document.getElementById("soundToggle");
   const fxToggle=document.getElementById("fxToggle");
   const resetTodayBtn=document.getElementById("resetTodayBtn");
-  const todayKey=new Date().toLocaleDateString("en-CA");
-
   let appSettings=JSON.parse(localStorage.getItem("xuanAppSettings")||'{"sound":true,"fx":true}');
 
-  function setToggle(el,on){ if(el) el.classList.toggle("on",!!on); }
-  function refreshNav(which){
-    navButtons.forEach(b=>b.classList.toggle("active",b.dataset.nav===which));
-  }
+  function setToggle(el,on){if(el)el.classList.toggle("on",!!on)}
+  function refreshNav(which){navButtons.forEach(b=>b.classList.toggle("active",b.dataset.nav===which))}
+  function closeAll(){[recordsModal,starsModal,settingsModal].forEach(m=>m&&m.classList.remove("show"));refreshNav("home")}
+
   function openRecords(){
     refreshNav("records");
-    const s=JSON.parse(localStorage.getItem("xuanMathOfficial")||"null")||{date:todayKey,done:0,stars:0};
-    const history=JSON.parse(localStorage.getItem("xuanMathHistory")||"[]");
-    const rows=[{date:"今天",done:s.done||0,stars:s.stars||0},...history.slice(-7).reverse()];
-    recordsContent.innerHTML=rows.map(x=>
-      '<div class="recordLine"><span>📅 '+x.date+'</span><span>'+x.done+' 題　⭐ '+x.stars+'</span></div>'
-    ).join("");
-    if(!rows.length) recordsContent.innerHTML='<p style="text-align:center;color:#9b7285">完成幾天後，這裡會出現記錄喔 💗</p>';
+    const s=JSON.parse(localStorage.getItem("xuanMathOfficial")||"null")||{done:0,stars:0};
+    recordsContent.innerHTML=
+      '<div class="recordLine"><span>📅 今天</span><span>'+s.done+' 題　⭐ '+s.stars+'</span></div>'+
+      '<p class="navHint">完成的題目會在這裡留下足跡喔 💗</p>';
     recordsModal.classList.add("show");
+  }
+  function openStars(){
+    refreshNav("stars");
+    if(typeof updateHome==="function")updateHome();
+    starsModal.classList.add("show");
   }
   function openSettings(){
     refreshNav("settings");
-    setToggle(soundToggle,appSettings.sound);
-    setToggle(fxToggle,appSettings.fx);
+    setToggle(soundToggle,appSettings.sound);setToggle(fxToggle,appSettings.fx);
     settingsModal.classList.add("show");
   }
   function goHome(){
-    refreshNav("home");
-    if(typeof goHomeFromGame==="function"){goHomeFromGame();return;}
-    const gameScreen=document.getElementById("gameScreen");
-    const home=document.getElementById("home");
-    if(gameScreen) gameScreen.style.display="none";
-    if(home) home.style.display="block";
+    closeAll();
+    if(typeof dailyMode!=="undefined")dailyMode=false;
+    const gameScreen=document.getElementById("gameScreen"),home=document.getElementById("home");
+    if(gameScreen)gameScreen.style.display="none";
+    if(home)home.style.display="block";
+    if(typeof updateHome==="function")updateHome();
+    window.scrollTo({top:0,behavior:"smooth"});
   }
-
-  navButtons.forEach(b=>{
-    b.addEventListener("click",()=>{
-      if(b.dataset.nav==="home") goHome();
-      if(b.dataset.nav==="records") openRecords();
-      if(b.dataset.nav==="settings") openSettings();
-    });
-  });
-
-  document.querySelectorAll("[data-app-close]").forEach(b=>{
-    b.addEventListener("click",()=>{
-      const m=document.getElementById(b.dataset.appClose);
-      if(m) m.classList.remove("show");
-      refreshNav("home");
-    });
-  });
-
-  [recordsModal,settingsModal].forEach(m=>m.addEventListener("click",e=>{
-    if(e.target===m){m.classList.remove("show");refreshNav("home");}
+  navButtons.forEach(b=>b.addEventListener("click",()=>{
+    if(b.dataset.nav==="home")goHome();
+    else if(b.dataset.nav==="stars")openStars();
+    else if(b.dataset.nav==="records")openRecords();
+    else if(b.dataset.nav==="settings")openSettings();
   }));
+  document.querySelectorAll("[data-app-close]").forEach(b=>b.addEventListener("click",closeAll));
+  [recordsModal,starsModal,settingsModal].forEach(m=>m&&m.addEventListener("click",e=>{if(e.target===m)closeAll()}));
 
-  soundToggle.addEventListener("click",()=>{
-    appSettings.sound=!appSettings.sound;
-    localStorage.setItem("xuanAppSettings",JSON.stringify(appSettings));
-    setToggle(soundToggle,appSettings.sound);
+  soundToggle?.addEventListener("click",()=>{
+    appSettings.sound=!appSettings.sound;localStorage.setItem("xuanAppSettings",JSON.stringify(appSettings));setToggle(soundToggle,appSettings.sound);
   });
-  fxToggle.addEventListener("click",()=>{
-    appSettings.fx=!appSettings.fx;
-    localStorage.setItem("xuanAppSettings",JSON.stringify(appSettings));
-    setToggle(fxToggle,appSettings.fx);
+  fxToggle?.addEventListener("click",()=>{
+    appSettings.fx=!appSettings.fx;localStorage.setItem("xuanAppSettings",JSON.stringify(appSettings));setToggle(fxToggle,appSettings.fx);
   });
-
-  resetTodayBtn.addEventListener("click",()=>{
-    if(!confirm("要重新開始今天的 5 題嗎？今天的星星會歸零喔。")) return;
-    const s=JSON.parse(localStorage.getItem("xuanMathOfficial")||"null")||{};
-    s.done=0;s.stars=0;s.date=todayKey;
-    localStorage.setItem("xuanMathOfficial",JSON.stringify(s));
-    if(typeof updateHome==="function") updateHome();
-    settingsModal.classList.remove("show");
-    refreshNav("home");
+  resetTodayBtn?.addEventListener("click",()=>{
+    if(!confirm("要重新開始今天的 5 題嗎？今天的星星會歸零喔。"))return;
+    state.done=0;state.stars=0;save();updateHome();closeAll();
   });
-
-  setToggle(soundToggle,appSettings.sound);
-  setToggle(fxToggle,appSettings.fx);
-})();
-</script>
+  setToggle(soundToggle,appSettings.sound);setToggle(fxToggle,appSettings.fx);
+})();</script>
 
 </body></html>
