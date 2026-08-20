@@ -193,7 +193,6 @@ function ensureAudio(){
     audioCtx=new AC();
   }
   if(audioCtx.state==='suspended') audioCtx.resume();
-  if(musicOn && !musicTimer) startMusic();
   return audioCtx;
 }
 function tone(freq,dur=.16,vol=.045,type='sine',delay=0){
@@ -256,7 +255,10 @@ function syncAudioUI(){
   if(x)x.classList.toggle('on',sfxOn);
 }
 // 第一次觸碰畫面時才啟動，符合 iPhone 瀏覽器的音訊規則
-document.addEventListener('pointerdown',()=>{ensureAudio()},{once:true});
+document.addEventListener('pointerdown',()=>{
+  ensureAudio();
+  if(musicOn && !musicTimer) startMusic();
+},{once:true});
 
 const $=id=>document.getElementById(id);
 function save(){localStorage.setItem('xuanV3State',JSON.stringify(state))}
