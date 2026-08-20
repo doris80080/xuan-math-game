@@ -80,6 +80,11 @@ button{font:inherit;border:0;cursor:pointer}
 .toggle.on{background:linear-gradient(135deg,#ff83ad,#c99bed)}
 .toggle.on:after{left:29px}
 .audioLabel{font-weight:1000;color:#704b63}
+.audioActions{display:flex;gap:8px;margin:10px 0 4px}
+.soundTest{border:0;border-radius:14px;padding:10px 12px;background:#fff1f7;color:#7d4c67;font-weight:900;box-shadow:0 2px 8px #00000010;cursor:pointer}
+.soundTest:active{transform:scale(.97)}
+.musicTest{background:linear-gradient(135deg,#fff2b8,#ffd9ec)}
+.audioStatus{font-size:12px;color:#9a7185;text-align:center;padding:8px 4px 12px}
 .audioSub{font-size:12px;color:#a08393;margin-top:2px}
 </style>
 </head>
@@ -126,10 +131,15 @@ button{font:inherit;border:0;cursor:pointer}
       <div><div class="audioLabel">🎵 可愛背景配樂</div><div class="audioSub">輕柔、不吵鬧的兒童旋律</div></div>
       <button id="musicToggle" class="toggle on" aria-label="切換背景配樂" onclick="toggleMusic()"></button>
     </div>
+    <div class="audioActions">
+      <button class="soundTest musicTest" onclick="playMusicNow()">▶ 立即播放配樂</button>
+      <button class="soundTest" onclick="testSfx()">🔔 試聽音效</button>
+    </div>
     <div class="audioRow">
       <div><div class="audioLabel">🔔 遊戲音效</div><div class="audioSub">答對、答錯、按鈕與完成獎勵音效</div></div>
       <button id="sfxToggle" class="toggle on" aria-label="切換遊戲音效" onclick="toggleSfx()"></button>
     </div>
+    <div class="audioStatus" id="audioStatus">🎵 點「立即播放配樂」即可開始聽音樂</div>
     <p class="tiny">主畫面只保留「設定」與「隨機出題」；18 張遊戲情境插畫都可以直接點擊開始。</p>
     <button class="backHome" onclick="closeSettings()">完成</button>
   </div>
@@ -186,13 +196,15 @@ let sfxOn=state.sfxOn!==false;
 const melody=[72,76,79,76,74,77,81,77,72,76,79,83,79,76,74,72];
 const noteHz=n=>440*Math.pow(2,(n-69)/12);
 
-function ensureAudio(){
+async function ensureAudio(){
   if(!audioCtx){
     const AC=window.AudioContext||window.webkitAudioContext;
     if(!AC)return null;
     audioCtx=new AC();
   }
-  if(audioCtx.state==='suspended') audioCtx.resume();
+  if(audioCtx.state==='suspended'){
+    try{ await audioCtx.resume(); }catch(e){}
+  }
   return audioCtx;
 }
 function tone(freq,dur=.16,vol=.045,type='sine',delay=0){
@@ -224,30 +236,59 @@ function sfx(kind){
     [72,76,79,84,88].forEach((n,i)=>tone(noteHz(n),.18,.045,'triangle',i*.09));
   }
 }
-function startMusic(){
-  if(!musicOn || musicTimer || !ensureAudio())return;
+async function startMusic(){
+  if(!musicOn || musicTimer)return;
+  const ctx=await ensureAudio();
+  if(!ctx || ctx.state!=='running')return;
   musicStep=0;
   musicTimer=setInterval(()=>{
     if(!musicOn){stopMusic();return}
     const n=melody[musicStep%melody.length];
-    tone(noteHz(n),.30,.012,'triangle');
-    if(musicStep%4===0) tone(noteHz(n-12),.42,.007,'sine',.02);
+    tone(noteHz(n),.30,.035,'triangle');
+    if(musicStep%4===0) tone(noteHz(n-12),.42,.014,'sine',.02);
     musicStep++;
   },420);
 }
 function stopMusic(){
   if(musicTimer){clearInterval(musicTimer);musicTimer=null}
 }
-function toggleMusic(){
+async function toggleMusic(){
   musicOn=!musicOn;state.musicOn=musicOn;save();
   const el=$('musicToggle'); if(el)el.classList.toggle('on',musicOn);
-  sfx('tap');
-  if(musicOn){ensureAudio();startMusic()}else stopMusic();
+  if(musicOn){
+    await ensureAudio(); await startMusic();
+    setAudioStatus('🎵 背景配樂已開啟');
+    sfx('tap');
+  }else{
+    stopMusic();
+    setAudioStatus('🔇 背景配樂已關閉');
+  }
 }
-function toggleSfx(){
+async function toggleSfx(){
   sfxOn=!sfxOn;state.sfxOn=sfxOn;save();
   const el=$('sfxToggle'); if(el)el.classList.toggle('on',sfxOn);
-  if(sfxOn){ensureAudio();sfx('tap')}
+  if(sfxOn){
+    await ensureAudio();
+    setAudioStatus('🔔 遊戲音效已開啟');
+    sfx('tap');
+  }else{
+    setAudioStatus('🔕 遊戲音效已關閉');
+  }
+}
+async function playMusicNow(){
+  musicOn=true;state.musicOn=true;save();syncAudioUI();
+  await ensureAudio();
+  await startMusic();
+  setAudioStatus(musicTimer ? '🎵 正在播放可愛配樂' : '⚠️ 瀏覽器尚未啟用音訊，請再點一次');
+}
+async function testSfx(){
+  sfxOn=true;state.sfxOn=true;save();syncAudioUI();
+  await ensureAudio();
+  sfx('correct');
+  setAudioStatus('🔔 音效播放中！');
+}
+function setAudioStatus(text){
+  const el=$('audioStatus'); if(el)el.textContent=text;
 }
 function syncAudioUI(){
   const m=$('musicToggle'),x=$('sfxToggle');
@@ -255,9 +296,9 @@ function syncAudioUI(){
   if(x)x.classList.toggle('on',sfxOn);
 }
 // 第一次觸碰畫面時才啟動，符合 iPhone 瀏覽器的音訊規則
-document.addEventListener('pointerdown',()=>{
-  ensureAudio();
-  if(musicOn && !musicTimer) startMusic();
+document.addEventListener('pointerdown',async()=>{
+  await ensureAudio();
+  if(musicOn && !musicTimer) await startMusic();
 },{once:true});
 
 const $=id=>document.getElementById(id);
@@ -371,6 +412,7 @@ function openSettings(){
   syncAudioUI();
   $('settingsStars').textContent=state.stars;
   $('settingsDone').textContent=state.done;
+  setAudioStatus(musicOn ? (musicTimer ? '🎵 正在播放可愛配樂' : '🎵 配樂已開啟，點「立即播放配樂」即可聽') : '🔇 背景配樂目前關閉');
   $('settingsModal').classList.add('show');
 }
 function closeSettings(){sfx('tap');$('settingsModal').classList.remove('show')}
